@@ -35,23 +35,17 @@ set(include_install_dir "include")
 
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
 
-# Configuration
 set(version_config "${generated_dir}/${PROJECT_NAME}ConfigVersion.cmake")
 set(project_config "${generated_dir}/${PROJECT_NAME}Config.cmake")
 set(targets_export_name "${PROJECT_NAME}Targets")
 set(namespace "${PROJECT_NAME}::")
 
-# Include module with fuction 'write_basic_package_version_file'
 include(CMakePackageConfigHelpers)
 
 write_basic_package_version_file(
   "${version_config}" COMPATIBILITY SameMajorVersion
   )
 
-# Configure '<PROJECT-NAME>Config.cmake'
-# Use variables:
-#   * targets_export_name
-#   * PROJECT_NAME
 configure_package_config_file(
   "cmake/Config.cmake.in"
   "${project_config}"
@@ -69,7 +63,7 @@ install(
 
 install(
   FILES "${TARGET_PUBLIC_HDRS}"
-  DESTINATION "${include_install_dir}"
+  DESTINATION "${include_install_dir}/${PROJECT_NAME}"
   )
 
 install(
