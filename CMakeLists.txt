@@ -28,7 +28,7 @@ add_library(LZ4 lz4.c lz4.h lz4hc.c lz4hc.h)
 
 #### install 
 
-set(TARGET_PUBLIC_HDRS lz4.h)
+set(TARGET_PUBLIC_HDRS lz4.h lz4hc.h)
 
 set(config_install_dir "lib/cmake/${PROJECT_NAME}")
 set(include_install_dir "include")
