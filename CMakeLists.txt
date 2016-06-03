@@ -61,11 +61,13 @@ install(
   INCLUDES DESTINATION "${include_install_dir}"
   )
 
-install(
-  FILES "${TARGET_PUBLIC_HDRS}"
-  DESTINATION "${include_install_dir}/${PROJECT_NAME}"
-  )
-
+foreach(HEADER ${TARGET_PUBLIC_HDRS})
+  install(
+    FILES "${CMAKE_CURRENT_SOURCE_DIR}/${HEADER}"
+    DESTINATION "${include_install_dir}/${PROJECT_NAME}"
+    )
+endforeach()
+  
 install(
   FILES "${project_config}" "${version_config}"
   DESTINATION "${config_install_dir}"
